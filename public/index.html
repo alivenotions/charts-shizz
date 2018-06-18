@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>It's charts time</title>
+  <style>
+    body {
+      font-family: monospace, 'Yu Gothic';
+      text-align: center;
+      background-color: #DADAD9;
+    }
+
+    #img-input {
+      display: block;
+      margin: 0 auto;
+    }
+
+    #img-input~input {
+      margin: 20px;
+    }
+
+    .button {
+      margin: 40px auto;
+      --offset: 10px;
+      --border-size: 2px;
+      display: block;
+      position: relative;
+      padding: 1.5em 3em;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #e55743;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 0;
+      box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+      transition: background .8s ease;
+    }
+
+    .button:hover {
+      background: rgba(100, 0, 0, 0.03);
+    }
+
+    .button__horizontal,
+    .button__vertical {
+      position: absolute;
+      top: var(--horizontal-offset, 0);
+      right: var(--vertical-offset, 0);
+      bottom: var(--horizontal-offset, 0);
+      left: var(--vertical-offset, 0);
+      transition: -webkit-transform .8s ease;
+      transition: transform .8s ease;
+      transition: transform .8s ease, -webkit-transform .8s ease;
+      will-change: transform;
+    }
+
+    .button__horizontal::before,
+    .button__vertical::before {
+      content: '';
+      position: absolute;
+      border: inherit;
+    }
+
+    .button__horizontal {
+      --vertical-offset: calc(var(--offset) * -1);
+      border-top: var(--border-size) solid currentcolor;
+      border-bottom: var(--border-size) solid currentcolor;
+    }
+
+    .button__horizontal::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--vertical-offset) * -1);
+      right: calc(var(--vertical-offset) * -1);
+    }
+
+    .button:hover .button__horizontal {
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+    }
+
+    .button__vertical {
+      --horizontal-offset: calc(var(--offset) * -1);
+      border-left: var(--border-size) solid currentcolor;
+      border-right: var(--border-size) solid currentcolor;
+    }
+
+    .button__vertical::before {
+      top: calc(var(--horizontal-offset) * -1);
+      bottom: calc(var(--horizontal-offset) * -1);
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size));
+    }
+
+    .button:hover .button__vertical {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+    }
+
+    #img-display {
+      border: 1px solid grey;
+      box-shadow: 1px 1px 0.5px grey;
+      transform: translateX(50%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Give Me some title</h1>
+  <div id="toggle-form">
+    <form id="img-upload" method=POST>
+      <input type="file" id="img-input" />
+      <button type="submit" class="button">
+        Submit
+        <div class="button__horizontal"></div>
+        <div class="button__vertical"></div>
+      </button>
+    </form>
+  </div>
+  <img id="img-display" src="#" style="display: none" />
+  <canvas id="myChart" width="200" height="100"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <script src="model.js"></script>
+</body>
+
+</html>
