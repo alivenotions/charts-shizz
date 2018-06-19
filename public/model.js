@@ -29,7 +29,7 @@ function submitImage(event, form) {
 
 function readURL(input) {
   imageDisplay.src = window.URL.createObjectURL(input.files[0])
-  imageDisplay.style += 'display: inline-block; height: 150px; width: 150px'
+  imageDisplay.setAttribute('style', 'display: inline-block; height: 150px; width: 150px')
 }
 
 function createChart(labels, data) {
