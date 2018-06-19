@@ -2,11 +2,14 @@ let submitImageForm = document.getElementById('img-upload')
 let imageInput = document.getElementById('img-input')
 let imageDisplay = document.getElementById('img-display')
 let toggleForm = document.getElementById('toggle-form')
+let spinner = document.getElementById('spinner')
 let ctx = document.getElementById("myChart").getContext('2d')
 
 function submitImage(event, form) {
   event.preventDefault()
   readURL(imageInput)
+
+  spinner.style.display = 'block'
 
   const formData = new FormData()
   let fileField = document.querySelector("input[type='file']")
@@ -19,7 +22,7 @@ function submitImage(event, form) {
     .then(response => response.json())
     .then(response => {
       toggleForm.innerHTML = ''
-      console.log(response)
+      spinner.style.display = 'none'
       createChart(Object.keys(response), Object.values(response))
     })
 }
