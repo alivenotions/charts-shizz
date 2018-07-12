@@ -26,10 +26,41 @@
     <div></div>
   </div>
   <canvas id="myChart" width="200" height="100"></canvas>
-  <div id="evaluate-features">
-    <p>Separate your tags with a comma</p>
-    <div class="tags-input"></div>
-    <h1><span>Missed</span> Features</h1>
+  <div class="evaluate-features">
+    <div id="missed-features">
+      <p>Separate your tags with a comma</p>
+      <div class="tags-input"></div>
+      <h1 class="boxed-style-heading"><span>Missed</span> Features</h1>
+    </div>
+    <div id="wrong-features">
+      <h1 class="boxed-style-heading"><span>Wrong</span> Features</h1>
+      <div class="custom-checkbox">
+        <div>
+          <input type="checkbox" id="optiona" name="option">
+          <label for="optiona">Option A
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 10 10 L 90 90"></path>
+              <path d="M 90 10 L 10 90"></path>
+            </svg>
+          </label>
+        </div>
+        
+        <div>
+          <input type="checkbox" id="optionb" name="option">
+          <label for="optionb">Option B
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 10 10 L 90 90"></path>
+              <path d="M 90 10 L 10 90"></path>
+            </svg>
+          </label>
+        </div>
+      </div>
+    </div>
+    <button class="button">
+      Submit
+      <div class="button__horizontal"></div>
+      <div class="button__vertical"></div>
+    </button>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
   <script src="model.js"></script>
