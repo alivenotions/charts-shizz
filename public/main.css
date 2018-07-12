@@ -147,6 +147,12 @@ body {
 }
 
 /* feedback styles */
+.evaluate-features {
+  margin: 40px;
+  padding: 10px;
+  border: 1px solid darkgrey;
+}
+
 #missed-features {
   height: 100%;
   max-width: 500px;
