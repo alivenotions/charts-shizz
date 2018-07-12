@@ -12,7 +12,7 @@ body {
 #img-input ~ input {
   margin: 20px;
 }
-
+/* button styles */
 .button {
   margin: 40px auto;
   --offset: 10px;
@@ -96,12 +96,14 @@ body {
   transform: scaleY(0);
 }
 
+/* image styles */
 #img-display {
   border: 1px solid grey;
   box-shadow: 1px 1px 0.5px grey;
   margin: 0 auto;
 }
 
+/* loader styles */
 .lds-ring {
   display: none;
   position: relative;
@@ -144,11 +146,9 @@ body {
   }
 }
 
+/* feedback styles */
 #evaluate-features {
   height: 100%;
-}
-
-#evaluate-features {
   max-width: 500px;
   margin: 0 auto;
   padding: 0 30px;
@@ -158,17 +158,17 @@ body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-h1 {
+#evaluate-features h1 {
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 300;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 5px;
-  color: #bbb;
+  color: #9b9999;
 }
-h1 span {
-  border: 2px solid #dfdfdf;
+#evaluate-features h1 span {
+  border: 2px solid #c9c9c9;
   padding: 3px 2px 3px 7px;
   border-radius: 6px;
   font-weight: 400;
@@ -176,16 +176,16 @@ h1 span {
 
 p {
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 0.9em;
   font-weight: bold;
-  color: #71ccd5;
+  color: #3fa4ad;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .tags-input {
-  border: 2px solid #dfdfdf;
+  border: 2px solid #e55743;
   border-radius: 40px;
   height: 40px;
   padding: 0 11px;
@@ -216,7 +216,7 @@ p {
           animation: blink 0.5s infinite alternate;
 }
 .tags-input:focus {
-  border-color: #71ccd5;
+  border-color: #64b2b9;
   outline: none;
 }
 .tags-input:focus[data-cursor]::after {
@@ -227,11 +227,8 @@ p {
     display: none;
   }
 }
-.tags-input:focus + h1 {
-  color: #71ccd5;
-}
 .tags-input:focus + h1 span {
-  border-color: #71ccd5;
+  border-color: #64b2b9 !important;
 }
 
 @-webkit-keyframes blink {
