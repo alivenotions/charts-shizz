@@ -3,6 +3,8 @@ let imageInput = document.getElementById('img-input')
 let imageDisplay = document.getElementById('img-display')
 let toggleForm = document.getElementById('toggle-form')
 let spinner = document.getElementById('spinner')
+let evaluateFeatures = document.querySelector('.evaluate-features')
+let customCheckbox = document.querySelector('.custom-checkbox')
 let ctx = document.getElementById("myChart").getContext('2d')
 
 function submitImage(event, form) {
@@ -24,7 +26,23 @@ function submitImage(event, form) {
       toggleForm.innerHTML = ''
       spinner.style.display = 'none'
       createChart(Object.keys(response), Object.values(response))
+
+      evaluateFeatures.style.display = 'block'
+      const checkboxes = Object.keys(response).map(createCustomCheckbox)
+      customCheckbox.innerHTML = checkboxes.join('')
     })
+}
+
+function createCustomCheckbox(key) {
+  return `<div>
+    <input type="checkbox" id=${key.toLowerCase().replace(/\s+/, '')} name="option">
+    <label for=${key.toLowerCase().replace(/\s+/, '')}>${key}
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10 10 L 90 90"></path>
+        <path d="M 90 10 L 10 90"></path>
+      </svg>
+    </label>
+  </div>`
 }
 
 function readURL(input) {
