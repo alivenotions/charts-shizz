@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const dataJSON = {
   "Sapphire": 0.10110812727361917,
@@ -12,6 +13,8 @@ const dataJSON = {
   "Diamond": 13.671603798866272,
   "Shoulder": 23.574328422546387
 }
+
+app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
