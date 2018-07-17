@@ -1,5 +1,4 @@
 let submitImageForm = document.getElementById('img-upload')
-let imageInput = document.getElementById('img-input')
 let imageDisplay = document.getElementById('img-display')
 let toggleForm = document.getElementById('toggle-form')
 let spinner = document.getElementById('spinner')
@@ -9,17 +8,11 @@ let ctx = document.getElementById('myChart').getContext('2d')
 
 function submitImage(event, form) {
   event.preventDefault()
-  readURL(imageInput)
 
   spinner.style.display = 'block'
 
-  const formData = new FormData()
-  let fileField = document.querySelector("input[type='file']")
-  formData.append('photo', fileField.files[0])
-
   fetch('http://localhost:9099/upload', {
     method: 'POST',
-    body: formData,
   })
     .then(response => response.json())
     .then(response => {

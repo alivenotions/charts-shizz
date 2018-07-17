@@ -2,17 +2,16 @@
 <html>
 
 <head>
-  <title>It's charts time</title>
+  <title>Ring Classification</title>
   <link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
-  <h1>Give Me some title</h1>
+  <h1>Ring Classification</h1>
   <div id="toggle-form">
     <form id="img-upload" method=POST>
-      <input type="file" id="img-input" />
       <button type="submit" class="button">
-        Submit
+        Request
         <div class="button__horizontal"></div>
         <div class="button__vertical"></div>
       </button>
@@ -25,7 +24,6 @@
     <div></div>
     <div></div>
   </div>
-  <canvas id="myChart" width="200" height="100"></canvas>
   <div class="evaluate-features" style="display: none">
     <div id="missed-features">
       <p>Separate your tags with a comma</p>
@@ -43,6 +41,7 @@
       <div class="button__vertical"></div>
     </button>
   </div>
+  <canvas id="myChart" width="200" height="100"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
   <script src="model.js"></script>
   <script src="feedback.js"></script>
