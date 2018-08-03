@@ -190,81 +190,58 @@ p {
   letter-spacing: 1px;
 }
 
-.tags-input {
-  border: 2px solid #e55743;
-  border-radius: 40px;
-  height: 40px;
-  padding: 0 11px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  color: #888;
-}
-.tags-input span {
-  background: #bbb;
-  margin-right: 7px;
-  color: #fff;
-  padding: 4px 7px;
-  border-radius: 20px;
-}
-.tags-input span[data-selected] {
-  background: #71ccd5;
-}
-.tags-input::after {
-  content: "";
-  background: #888;
-  width: 1px;
-  height: 19px;
-  margin: -1px 0 0 -1px;
-  display: none;
-  -webkit-animation: blink 0.5s infinite alternate;
-          animation: blink 0.5s infinite alternate;
-}
-.tags-input:focus {
-  border-color: #64b2b9;
+#missed-features-input {
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 40px 50px rgba(0, 0, 0, 0.25);
   outline: none;
+  font-size: 1em;
 }
-.tags-input:focus[data-cursor]::after {
-  display: block;
+#missed-features-input input {
+  outline: none;
+  width: auto;
+  border: 0;
+  float: left;
+  padding: 8px;
+  background: none;
 }
-@media screen and (max-width: 736px) {
-  .tags-input:focus[data-cursor]::after {
-    display: none;
-  }
+#missed-features-input::before {
+  content: "";
+  display: table;
 }
-.tags-input:focus + h1 span {
-  border-color: #64b2b9 !important;
-}
-
-@-webkit-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+#missed-features-input::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+.tag {
+  border-radius: 3px;
+  background: #b5aff9;
+  float: left;
+  margin: 3px;
+  padding: 4px;
+  font-size: 1em;
+  vertical-align: middle;
+  box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+}
+.tag a {
+  color: #000;
+  padding-right: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 5px;
+}
+.tag span {
+  padding-right: 10px;
+  padding-left: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 /* checkbox styles */
