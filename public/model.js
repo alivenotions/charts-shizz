@@ -6,22 +6,34 @@ let evaluateFeatures = document.querySelector('.evaluate-features')
 let customCheckbox = document.querySelector('.custom-checkbox')
 let ctx = document.getElementById('myChart').getContext('2d')
 
-function submitImage(event, form) {
+function submitImage(event) {
   event.preventDefault()
 
   spinner.style.display = 'block'
 
-  fetch('http://localhost:9099/upload', {
-    method: 'POST',
+  fetch('http://2a030b4e.ngrok.io/upload', {
+    method: 'GET',
   })
     .then(response => response.json())
     .then(response => {
-      toggleForm.innerHTML = ''
+      const features = {}
+      for(const res in response) {
+        if(res !== 'image') features[res] = response[res]
+      }
       spinner.style.display = 'none'
-      createChart(Object.keys(response), Object.values(response))
+      imageDisplay.setAttribute(
+        'src',
+        `http://2a030b4e.ngrok.io/${response.image}`
+      )
+      imageDisplay.setAttribute(
+        'style',
+        'display: inline-block; height: 150px; width: 150px'
+      )
+
+      createChart(Object.keys(features), Object.values(features))
 
       evaluateFeatures.style.display = 'block'
-      const checkboxes = Object.keys(response).map(createCustomCheckbox)
+      const checkboxes = Object.keys(features).map(createCustomCheckbox)
       customCheckbox.innerHTML = checkboxes.join('')
     })
 }
